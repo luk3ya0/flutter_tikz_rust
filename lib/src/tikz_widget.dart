@@ -224,23 +224,20 @@ class _TikzWidgetState extends State<TikzWidget>
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           // Render complete - show SVG
-          // Use Container with padding to prevent clipping when scaled
+          // Use Container with padding to prevent clipping
           return Container(
-            // Add padding to accommodate 1.5x scale (50% extra space = 25% on each side)
+            // Add padding to prevent edge clipping
             // Use generous padding since we can't add border in LaTeX (rust_tikz limitation)
-            padding: const EdgeInsets.all(50),
-            child: Transform.scale(
-              scale: 1.5,
-              child: SvgPicture.string(
-                snapshot.data!,
-                width: widget.width,
-                height: widget.height,
-                fit: widget.fit,
-                alignment: widget.alignment,
-                // Don't use colorFilter - it replaces ALL colors
-                // TikZ should render with correct colors from the start
-                colorFilter: null,
-              ),
+            padding: const EdgeInsets.all(20),
+            child: SvgPicture.string(
+              snapshot.data!,
+              width: widget.width,
+              height: widget.height,
+              fit: widget.fit,
+              alignment: widget.alignment,
+              // Don't use colorFilter - it replaces ALL colors
+              // TikZ should render with correct colors from the start
+              colorFilter: null,
             ),
           );
         } else if (snapshot.hasError) {
