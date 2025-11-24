@@ -49,11 +49,10 @@ rust/Cargo.lock
 
 # Compiled dynamic libraries
 *.so
-*.dylib
 *.dll
 
-# macOS specific
-macos/libflutter_tikz_rust_native.dylib
+# macOS specific - keep the compiled library for distribution
+# macos/libflutter_tikz_rust_native.dylib
 ios/libflutter_tikz_rust_native.a
 linux/libflutter_tikz_rust_native.so
 windows/flutter_tikz_rust_native.dll
