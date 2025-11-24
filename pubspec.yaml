@@ -37,14 +37,13 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_tikz_rust
-        pluginClass: FlutterTikzRustPlugin
+        ffiPlugin: true
       ios:
-        pluginClass: FlutterTikzRustPlugin
+        ffiPlugin: true
       linux:
-        pluginClass: FlutterTikzRustPlugin
+        ffiPlugin: true
       macos:
-        pluginClass: FlutterTikzRustPlugin
+        ffiPlugin: true
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
